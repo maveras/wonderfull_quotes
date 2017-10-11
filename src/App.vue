@@ -8,6 +8,8 @@
 <script>
 import appQuotesGrid from './components/quotes-grid.vue'
 import quoteInput from './components/quote-input.vue'
+
+import {eventBus} from './main'
 export default {
   name: 'app',
   data () {
@@ -15,6 +17,11 @@ export default {
       quotes: ['first quote','second quote'],
       maxQuotes: 10
     }
+  },
+  created () {
+    eventBus.$on('pushQuote',(quote)=>{
+      this.quotes.push(quote)
+    })
   },
   components: {
     appQuotesGrid,
