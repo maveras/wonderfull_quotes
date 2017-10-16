@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <quote-input></quote-input>
-    <app-quotes-grid :quotes="quotes"></app-quotes-grid>
+    <app-quotes-grid :quotes="quotes" @removeQuote='removeQuote'></app-quotes-grid>
   </div>
 </template>
 
@@ -16,6 +16,11 @@ export default {
     return {
       quotes: ['first quote','second quote'],
       maxQuotes: 10
+    }
+  },
+  methods: {
+    removeQuote(index){
+      this.quotes.splice(index, 1)
     }
   },
   computed: {
