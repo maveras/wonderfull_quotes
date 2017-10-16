@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <bar :quotes="quotes" :maxQuotes="maxQuotes"></bar>
     <quote-input></quote-input>
     <app-quotes-grid :quotes="quotes" @removeQuote='removeQuote'></app-quotes-grid>
   </div>
@@ -8,6 +9,7 @@
 <script>
 import appQuotesGrid from './components/quotes-grid.vue'
 import quoteInput from './components/quote-input.vue'
+import bar from './components/bar.vue'
 
 import {eventBus} from './main'
 export default {
@@ -37,7 +39,8 @@ export default {
   },
   components: {
     appQuotesGrid,
-    quoteInput
+    quoteInput,
+    bar
   }
 }
 </script>
