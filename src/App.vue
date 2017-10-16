@@ -18,9 +18,16 @@ export default {
       maxQuotes: 10
     }
   },
+  computed: {
+    quotesQty() {
+      return this.quotes.length
+    }
+  },
   created () {
     eventBus.$on('pushQuote',(quote)=>{
-      this.quotes.push(quote)
+      if(this.quotesQty < 10) {
+        this.quotes.push(quote)
+      }
     })
   },
   components: {
